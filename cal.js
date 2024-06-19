@@ -26,7 +26,11 @@ function calculate() {
 	const noRemainderPrice = Math.floor(price / num / unit) * unit;
   
 	// Calculate and display results for no remainder group
-	if (num > 1) {
+	if (remainder === 0) { // Check for no remainder
+	  noRemainderResult.push(`一人あたり ${noRemainderPrice}円です。（${num}人）`); // Display total people
+	  const noRemainderTotalPrice = noRemainderPrice * num;
+	  document.getElementById('verification').textContent = `合計で ${noRemainderTotalPrice}円になります。`;
+	} else if (num > 1) {
 	  noRemainderResult.push(`[端数なし] 一人あたり ${noRemainderPrice}円です。（${num - 1}人）`);
 	  const noRemainderTotalPrice = noRemainderPrice * (num - 1);
 	  document.getElementById('verification').textContent = `合計で ${noRemainderTotalPrice + onePersonPrice}円になります。`;
