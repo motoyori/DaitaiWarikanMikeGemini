@@ -8,7 +8,11 @@ function calculate() {
 	}
   
 	const onePersonPrice = Math.round(price / num);
-	const result = `一人あたりだいたい${onePersonPrice}円です。`;
+	const totalPrice = onePersonPrice * num;
+  
+	const result = `一人あたりだいたい${onePersonPrice}円です。<br>
+				  合計で ${totalPrice}円になります。`;
   
 	document.getElementById('result').textContent = result;
+	document.getElementById('verification').textContent = totalPrice;
   }
