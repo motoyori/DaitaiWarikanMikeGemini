@@ -13,6 +13,7 @@ function calculate() {
 	const result = `一人あたりだいたい${onePersonPrice}円です。<br>
 				  合計で ${totalPrice}円になります。`;
   
-	document.getElementById('result').textContent = result;
+	// Use innerHTML to display line breaks correctly
+	document.getElementById('result').innerHTML = result;
 	document.getElementById('verification').textContent = totalPrice;
   }
