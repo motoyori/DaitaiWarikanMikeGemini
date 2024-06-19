@@ -13,8 +13,8 @@ function calculate() {
 	const remainder = price % (num * unit);
   
 	// Prepare results arrays
-	const remainderResult = []; // For the person with remainder
-	const noRemainderResult = []; // For others without remainder
+	const remainderResult = [];
+	const noRemainderResult = [];
   
 	// Distribute remainder if any
 	if (remainder > 0) {
@@ -22,8 +22,8 @@ function calculate() {
 	  remainderResult.push(`[端数含む] 一人あたり ${onePersonPrice}円です。`);
 	}
   
-	// Calculate onePersonPrice without remainder (excluding remainder person)
-	const noRemainderPrice = Math.floor(price - remainder) / (num - 1) / unit * unit;
+	// Calculate noRemainderPrice (corrected)
+	const noRemainderPrice = Math.floor(price / num / unit) * unit;
   
 	// Calculate and display results for no remainder group
 	if (num > 1) {
