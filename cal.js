@@ -28,8 +28,8 @@ function calculate() {
 	// Calculate and display results for no remainder group
 	if (num > 1) {
 	  noRemainderResult.push(`[端数なし] 一人あたり ${noRemainderPrice}円です。（${num - 1}人）`);
-	  const noRemainderTotalPrice = noRemainderPrice * (num - 1); // Corrected calculation
-	  document.getElementById('verification').textContent = `合計で ${noRemainderTotalPrice + remainder}円になります。`; // Add remainder
+	  const noRemainderTotalPrice = noRemainderPrice * (num - 1); // Corrected multiplication
+	  document.getElementById('verification').textContent = `合計で ${noRemainderTotalPrice + remainder}円になります。`;
 	} else {
 	  // If only one person, no need to separate
 	  noRemainderResult.push(`一人あたり ${noRemainderPrice}円です。`);
