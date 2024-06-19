@@ -11,6 +11,16 @@
   <p>金額：<input type="number" id="price" value="0"></p>
   <p>人数：<input type="number" id="num" value="0"></p>
 
+  <div>
+    <p>単位を選択:</p>
+    <input type="radio" name="unit" id="unit100" value="100" checked>
+    <label for="unit100">100円単位</label><br>
+    <input type="radio" name="unit" id="unit10" value="10">
+    <label for="unit10">10円単位</label><br>
+    <input type="radio" name="unit" id="unit1" value="1">
+    <label for="unit1">1円単位</label>
+  </div>
+
   <button onclick="calculate()">計算</button>
 
   <div id="result"></div>
