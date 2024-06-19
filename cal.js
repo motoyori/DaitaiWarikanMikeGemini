@@ -7,13 +7,24 @@ function calculate() {
 	  return;
 	}
   
-	const onePersonPrice = Math.round(price / num);
-	const totalPrice = onePersonPrice * num;
+	const onePersonPrice = Math.floor(price / num); // Use floor to get the lower integer
+	const remainder = price % num; // Calculate the remainder
   
-	const result = `一人あたりだいたい${onePersonPrice}円です。<br>
-				  合計で ${totalPrice}円になります。`;
+	const result = []; // Initialize an array for results
   
-	// Use innerHTML to display line breaks correctly
-	document.getElementById('result').innerHTML = result;
-	document.getElementById('verification').textContent = totalPrice;
+	// Distribute the remainder among one person
+	if (remainder > 0) {
+	  result.push(`[端数含む] 一人あたり ${onePersonPrice + remainder}円です。`);
+	  result.push(`[端数なし] 一人あたり ${onePersonPrice}円です。（${num - 1}人）`);
+	} else {
+	  // No remainder, equal amount for all
+	  result.push(`一人あたり ${onePersonPrice}円です。`);
+	}
+  
+	// Calculate and display total amount
+	const totalPrice = onePersonPrice * num + remainder;
+	document.getElementById('verification').textContent = `合計で ${totalPrice}円になります。`;
+  
+	// Display individual amounts
+	document.getElementById('result').innerHTML = result.join('<br>');
   }
